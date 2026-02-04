@@ -1,37 +1,19 @@
-ORG 0000H
+ORG 0000H          
 
-MOV R0, #40H
+MOV R0, #40H      
 
-MOV A, #12H
-MOV @R0, A
-INC R0
+LOOP:              
+MOV A, @R0         
 
-MOV A, #0FFH
-MOV @R0, A
-INC R0
+CJNE A, #0FFH, NEXT 
 
-MOV A, #34H
-MOV @R0, A
-INC R0
+CLR A              
+MOV @R0, A        
 
-MOV A, #0FFH
-MOV @R0, A
-INC R0
+NEXT:
+INC R0            
 
-MOV A, #56H
-MOV @R0, A
-INC R0
-
-MOV A, #78H
-MOV @R0, A
-INC R0
-
-MOV A, #0FFH
-MOV @R0, A
-INC R0
-
-MOV A, #9AH
-MOV @R0, A
+CJNE R0, #60H, LOOP 
 
 HERE: SJMP HERE
 
